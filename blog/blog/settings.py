@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,6 +28,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# File Storage
+FILE_STORAGE_ROOT = os.path.join(BASE_DIR, 'filestorage')
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication',
     'posts',
+    'follow',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +75,11 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'blog.wsgi.application'
+
+# Static Files Directories
+STATICFILES_DIRS = [
+    FILE_STORAGE_ROOT,
+]
 
 
 # Database
