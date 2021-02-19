@@ -11,12 +11,5 @@ class Posts(models.Model):
     image = models.CharField(max_length=100, null=True)
     user = models.ForeignKey(User, on_delete=CASCADE)
 
-
-class Followers(models.Model):
-    follwer_id = models.IntegerField()
-    user = models.ForeignKey(User, on_delete=CASCADE)
-
-
-class Following(models.Model):
-    following_id = models.IntegerField()
-    user = models.ForeignKey(User, on_delete=CASCADE)
+    class Meta:
+        db_table = 'posts'
